@@ -26,7 +26,16 @@ public class PersonService {
         List<Person> people = personRepository.findAll();
         //map의 반환형은 stream 이기 때문에 collect를 이용해 List 형태로 바꿔준다.
 
-        return people.stream().filter(person -> person.getBlock() == null).collect(Collectors.toList());
+//        return people.stream().filter(person -> person.getBlock() == null).collect(Collectors.toList());
+        return personRepository.findByBlockIsNull();
+    }
+
+
+    public List<Person> getPeopleByName(String name){
+//        List<Person> people = personRepository.findAll();
+
+//        return people.stream().filter(person -> person.getName().equals(name)).collect(Collectors.toList());
+        return personRepository.findByName(name);
     }
 
     @Transactional(readOnly = true)

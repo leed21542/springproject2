@@ -44,6 +44,15 @@ class PersonServiceTest {
     }
 
     @Test
+    void getPeopleByName(){
+        givenPeople();
+
+        List<Person> result = personService.getPeopleByName("Martin");
+
+        result.forEach(System.out::println);
+    }
+
+    @Test
     void cascadeTest(){
         givenPeople();
         List<Person> result = personRepository.findAll();
