@@ -1,6 +1,5 @@
 package com.example.demo.service;
 
-import com.example.demo.domain.Block;
 import com.example.demo.domain.Person;
 import com.example.demo.repository.BlockRepository;
 import com.example.demo.repository.PersonRepository;
@@ -10,7 +9,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @Slf4j
@@ -40,10 +38,10 @@ public class PersonService {
 
     @Transactional(readOnly = true)
     public Person getPerson(Long id){
-        Person person = personRepository.findById(id).get();
+        Person person0 = personRepository.findById(id).get();
 
-        log.info("person : {}",person);
+        log.info("person : {}", person0);
 
-        return person;
+        return person0;
     }
 }
