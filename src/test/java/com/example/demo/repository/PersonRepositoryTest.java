@@ -24,9 +24,7 @@ class PersonRepositoryTest {
     void crud() {
 
         Person person = new Person();
-        person.setAge(10);
         person.setName("john");
-        person.setBloodType("A");
         personRepository.save(person);
 
         List<Person> people = personRepository.findByName("john");
@@ -35,19 +33,7 @@ class PersonRepositoryTest {
 
         assertThat(people.size()).isEqualTo(1);
         assertThat(people.get(0).getName()).isEqualTo("john");
-        assertThat(people.get(0).getAge()).isEqualTo(10);
-        assertThat(people.get(0).getBloodType()).isEqualTo("A");
-
-    }
-
-    @Test
-    void findByBloodType(){
-
-        List<Person> result = personRepository.findByBloodType("A");
-
-        assertThat(result.size()).isEqualTo(2);
-        assertThat(result.get(0).getName()).isEqualTo("martin");
-        assertThat(result.get(1).getName()).isEqualTo("benny");
+//        assertThat(people.get(0).getAge()).isEqualTo(10);
     }
 
     @Test

@@ -35,9 +35,9 @@ class HelloWorldControllerTest {
         mockMvc = MockMvcBuilders.standaloneSetup(helloWorldController).build();
 
         mockMvc.perform(
-                MockMvcRequestBuilders.get("/api/helloWorld")
-        ).andDo(MockMvcResultHandlers.print())
+                MockMvcRequestBuilders.get("/api/helloWorld"))
+                .andDo(MockMvcResultHandlers.print())
                 .andExpect(MockMvcResultMatchers.status().isOk())
-        .andExpect(MockMvcResultMatchers.content().string("HelloWorld"));
+                .andExpect(MockMvcResultMatchers.content().string("HelloWorld"));
     }
 }
